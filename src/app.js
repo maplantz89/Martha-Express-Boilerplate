@@ -5,6 +5,9 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const { NODE_ENV } = require('./config');
+const foldersRouter = require('./Folders/folders-service');
+const notesRouter = require('./Notes/notes-service');
+
 
 const app = express();
 
@@ -16,11 +19,8 @@ app.use(morgan(morganOptions));
 app.use(helmet());
 app.use(cors());
 
-app.get('/', (req,res) => {
-  res.send('Hello World');
-});
-
-
+app.use('/api/folders', foldersRouter);
+app.use('/api/notes', notesRouter);
 
 app.use(function errorHandler(error, req, res, next) { //eslint-disable-line no-unused-vars
   let response;

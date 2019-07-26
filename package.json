@@ -1,5 +1,5 @@
 {
-  "name": "express-boilerplate",
+  "name": "noteful-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,7 @@
     "test": "mocha --require test/setup.js",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
+    "migrate": "postgrator --config postgrator-config.js",
     "predeploy": "npm audit",
     "deploy": "git push heroku master"
   },
@@ -18,6 +19,9 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "helmet": "^3.19.0",
-    "morgan": "^1.9.1"
+    "knex": "^0.19.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.0",
+    "xss": "^1.0.6"
   }
 }
